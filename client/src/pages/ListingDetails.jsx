@@ -127,6 +127,25 @@ function ListingDetails() {
             {listing.description}
           </p>
 
+         <div className="property-features">
+
+  <p>
+    👥 Guests: {listing.guests}
+  </p>
+
+  <p>
+    🛏 Bedrooms: {listing.bedrooms}
+  </p>
+
+  <p>
+    🛌 Beds: {listing.beds}
+  </p>
+
+  <p>
+    🚿 Bathrooms: {listing.bathrooms}
+  </p>
+
+</div>
 
           <div className="host-info">
 

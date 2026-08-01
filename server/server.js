@@ -2,16 +2,20 @@ const dns = require("dns");
 
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
+const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
+dotenv.config({
+  path: path.join(__dirname, ".env"),
+});
+
+console.log("JWT SECRET:", process.env.JWT_SECRET);
 const userRoutes = require("./routes/userRoutes");
 const listingRoutes = require("./routes/listingRoutes");
 
-// Load environment variables
-dotenv.config({ path: "./server/.env" });
 
 // CREATE EXPRESS APP ✅
 const app = express();
@@ -24,7 +28,7 @@ app.use(
       "http://localhost:5173",
       "http://localhost:5174",
       "http://localhost:5175",
-      "YOUR_RENDER_FRONTEND_URL"
+      "https://airbnb-clone-fawn-seven.vercel.app"
     ],
     credentials: true,
   })
@@ -39,7 +43,6 @@ app.use((req, res, next) => {
   console.log("Body:", req.body);
   next();
 });
-
 
 // Routes
 app.use("/api/users", userRoutes);
