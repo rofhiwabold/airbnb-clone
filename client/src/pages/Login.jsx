@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../services/api";
 
 function Login() {
@@ -76,6 +76,10 @@ function Login() {
           </button>
 
         </form>
+        <p style={{ textAlign:     "center", marginTop: "20px" }}>
+           Don't have an account?{" "}
+          <Link to="/register">Register</Link>
+        </p>
 
       </div>
 
